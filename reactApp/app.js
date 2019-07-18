@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-let dummyData = ['Do1', 'Do2', 'Do3'];
+let dummyData = [
+  { taskText: 'Todo1', completed: true },
+  { taskText: "Catch 'em all", completed: false },
+  { taskText: 'Todo2', completed: false }
+];
 class InputLine extends React.Component {
   constructor(props) {
     super(props);
@@ -16,12 +20,21 @@ class InputLine extends React.Component {
 
 class Todo extends React.Component {
   render() {
-    return (
-      <li>
-        <button type="button">X</button>
-        {this.props.task}
-      </li>
-    );
+    if (this.props.completed === false) {
+      return (
+        <li>
+          <button type="button">X</button>
+          {this.props.task}
+        </li>
+      );
+    } else {
+      return (
+        <li>
+          <button type="button">X</button>
+          <strike>{this.props.task}</strike>
+        </li>
+      );
+    }
   }
 }
 
@@ -30,7 +43,7 @@ class TodoList extends React.Component {
     return (
       <ul>
         {dummyData.map(todo => {
-          return <Todo task={todo} />;
+          return <Todo task={todo.taskText} completed={todo.completed} />;
         })}
       </ul>
     );
