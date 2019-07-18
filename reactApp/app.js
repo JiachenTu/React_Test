@@ -31,7 +31,7 @@ class Todo extends React.Component {
       return (
         <li>
           <button type="button">X</button>
-          <strike>{this.props.task}</strike>
+          <strike className="completed">{this.props.task}</strike>
         </li>
       );
     }
