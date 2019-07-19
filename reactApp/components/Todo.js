@@ -5,8 +5,8 @@ class Todo extends React.Component {
     if (this.props.completed === false) {
       return (
         <li>
-          <h4 onClick={() => this.props.toggleComplete(this.props.ind)}>
-            <button onClick={() => this.props.todoXClick(this.props.ind)} type="button">
+          <h4 onClick={() => this.props.toggleComplete(this.props.id)}>
+            <button onClick={() => this.props.todoXClick(this.props.id)} type="button">
               X
             </button>{' '}
             {this.props.task}
@@ -16,8 +16,8 @@ class Todo extends React.Component {
     } else {
       return (
         <li>
-          <h4 onClick={() => this.props.toggleComplete(this.props.ind)}>
-            <button onClick={() => this.props.todoXClick(this.props.ind)} type="button">
+          <h4 onClick={() => this.props.toggleComplete(this.props.id)}>
+            <button onClick={() => this.props.todoXClick(this.props.id)} type="button">
               X
             </button>{' '}
             <strike className="completed"> {this.props.task} </strike>
